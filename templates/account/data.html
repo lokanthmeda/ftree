@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Your details{% endblock %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="static/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+
+<div class="main-w3layouts wrapper">
+		<h1>Provide Following Details</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				{% if not p_form %}
+
+<form method="post" enctype="multipart/form-data">
+					<input class="text" type="text" name="first_name" placeholder="first_name" required=""><br>
+					<input class="text" type="text" name="last_name" placeholder="last_name" required=""><br>
+					<label>Date_Of_Birth :</label><input class="text" type="date" name="date_of_birth" placeholder="date_of_birth" required=""><br><br>
+					<input class="text" type="text" name="city" placeholder="city" required=""><br>
+					<input class="text" type="text" name="country" placeholder="country" required=""><br>
+					<label for="img">Select image:</label>
+                    <input type="file" id="img" name="photo" accept="image/*"><br><br>
+
+                <label>Select Your Gender:</label><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                      <label for="male">Male</label>
+                      <input type="radio" id="female" name="gender" value="female">
+                      <label for="female">Female</label><br><br>
+                <label>Select Your Relation :</label><br>
+					<input type="radio" id="self" name="relation" value="self">
+                      <label for="self">Self</label><br>
+                      <input type="radio" id="mother" name="relation" value="mother"><label for="mother">Mother</label><br>
+                      <input type="radio" id="father" name="relation" value="father"><label for="father">Father</label><br>
+                      <input type="radio" id="brother" name="relation" value="brother"><label for="brother">Brother</label><br>
+                      <input type="radio" id="sister" name="relation" value="sister"><label for="sister">Sister</label><br>
+                      <input type="radio" id="son" name="relation" value="son"><label for="mother">Son</label><br>
+                      <input type="radio" id="daughter" name="relation" value="daughter"><label for="mother">Daughter</label><br>
+                      <input type="radio" id="husband" name="relation" value="husband"><label for="mother">Husband</label><br>
+                      <input type="radio" id="wife" name="relation" value="wife"><label for="mother">Wife</label><br>
+					<input class="text" type="text" name="referal_relation" placeholder="referal_relation" required=""><br>
+
+
+					{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+                     {% csrf_token %}
+					<input type="submit" value="submit">
+</form>
+	{% else %}
+
+<form method="post" enctype="multipart/form-data">
+	{{ p_form.as_p }}
+	{% csrf_token %}
+	<input type="submit" value="submit">
+	{%  endif %}
+
+</form>
+			</div>
+		</div>
+		<!-- copyright -->
+
+		<!-- //copyright -->
+<!--		<ul class="colorlib-bubbles">-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--			<li></li>-->
+<!--		</ul>-->
+	</div>
+<!--<form  method="post" enctype="multipart/form-data">-->
+
+
+
+<!--     {{ p_form.as_p }}-->
+<!--    <p>Please select your gender:</p>-->
+<!--  <input type="radio" id="male" name="gender" value="male">-->
+<!--  <label for="male">Male</label>-->
+<!--  <input type="radio" id="female" name="gender" value="female">-->
+<!--  <label for="female">Female</label>-->
+<!--    {% if messages %}-->
+<!--<ul class="messages">-->
+<!--    {% for message in messages %}-->
+<!--    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% endif %}-->
+<!--<p><input type="submit" value="submit"></p>-->
+<!--</form>-->
+{% endblock %}

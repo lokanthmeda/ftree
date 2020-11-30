@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Your details{% endblock %}
+{% block content %}
+<h2>Family Tree Sign in/up Form</h2>
+<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="all" />
+<script src="{% static myscripts.js %}"></script>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="{% url 'login' %}" method="post" hover>
+			<h1>Sign in</h1>
+<!--			<div class="social-container">-->
+<!--				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>-->
+<!--				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>-->
+<!--				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>-->
+<!--			</div>-->
+<!--			<span>or use your account</span>-->
+			<input type="text" name="username" placeholder="Username"  />
+			<input type="password" name="password" placeholder="Password" />
+			<a href="{% url 'password_reset' %}">Forgot your password?</a>
+			<button>Sign In</button>
+            {% csrf_token %}
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp"><a href="{% url 'account_signup' %}">Sign Up</a></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

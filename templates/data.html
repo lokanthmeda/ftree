@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+{% for i in data %}
+    <tr>
+        <td>{{ i.first_name }}</td>
+        <td>{{ i.last_name }}</td>
+        <td><a href="{% url 'full_data_details' pk=i.user_id %}">More Details</a></td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}
+

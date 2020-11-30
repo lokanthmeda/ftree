@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <table class="table table-bordered text-center table-hover">
+    <thead class="bg-success text-white">
+    <tr>
+<!--        <th>Relation Ship</th>-->
+        <th>First_Name</th>
+        <th>Last_Name</th>
+        <th>Date_of_Birth</th>
+        <th>City</th>
+<!--        <th>Modify</th>-->
+    </tr>
+    </thead>
+     <tbody class="bg-dark text-white">
+{% for i in data %}
+<tr>
+    <td>{{ i.first_name }}</td>
+    <td>{{ i.last_name }}</td>
+    <td>{{ i.date_of_birth }}</td>
+    <td>{{ i.city }}</td>
+
+
+</tr>
+     {% endfor %}
+     </tbody>
+ </table>
+
+{% endblock %}

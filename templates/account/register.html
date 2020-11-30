@@ -1,0 +1,49 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <html>
+ <head>
+ 	<title>Signup Form </title>
+ 	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+ 	<script type="text/javascript" src="{% static javascript.js %}"></script>
+ </head>
+ <body>
+
+ <div class="signup_box">
+<!-- 	<img class="user" src="{% static 'fam.jpg' %}" alt="img woman">-->
+ 	<h3>SIGNUP</h3>
+
+ 	<form name="signupform" onsubmit="return form2()" action="{% url 'account_signup' %}" method="post" >
+
+ 	<p>User Name</p>
+ 	<input type="text" name="username" placeholder="Enter Username">
+
+ 	<p>Email</p>
+ 	<input type="email" name="email" placeholder="Enter Email id">
+
+ 	<p>Password</p>
+ 	<input type="password" name="password" placeholder="password">
+
+ 	<p>Retype Password</p>
+ 	<input type="password" name="password2" placeholder="Re-Enter pasword"><br>
+ 	<div id="errorbox"></div><br>
+
+
+ 	<input type="submit" name="" value="SIGNUP"><br><br>
+
+ 	<a href="{% url 'login' %}">Existing user, Login </a>
+        {% csrf_token %}
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+ </form>
+ </div>
+ </body>
+ {% endblock %}
+ </html>
