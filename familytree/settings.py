@@ -133,8 +133,8 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'venkatanagalokanath@gmail.com'
-EMAIL_HOST_PASSWORD ='3697@Loku'
+EMAIL_HOST_USER = '*****@gmail.com'
+EMAIL_HOST_PASSWORD ='********'
 DEFAULT_FROM_EMAIL = 'Family Tree <venkatanagalokanath@gmail.com>'
 
 
